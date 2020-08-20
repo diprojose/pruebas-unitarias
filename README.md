@@ -1,27 +1,47 @@
-# Pruebas
+# Pruebas unitarias
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.6.
+## Ventajas:
+•	Ayuda a encontrar errores
+•	Permite probar código escrito por otros programadores
+•	Permite detectar errores antes de que sucedan en producción
+•	Ayuda a generar un código más limpio, reportes y estadísticas
 
-## Development server
+## Desventajas:
+•	No garantiza código libre de errores
+•	Probar todo el código, puede ser un trabajo aún más largo que la misma aplicación
+•	Costos de producción pueden aumentar
+•	No es muy útil si trabajas solo
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## ¿Qué debo probar?
+La ruta crítica si no hay mucho tiempo.
 
-## Code scaffolding
+## ¿Qué tipos de pruebas existen?
+•	Automáticas
+•	Manuales
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Las automáticas tienen estas diferentes pruebas:
+Unitarias: Son pruebas aisladas sin presencia de recursos externos, como llamadas a un API u otro componente o servicio.
+•	Nos ayudan a probar rápidamente métodos y funciones.
+•	Podemos escribir muchas pruebas rápidamente
+•	Podemos someter a pruebas de estrés nuestros métodos
+•	No sabríamos los tiempos de respuesta de servicios o APIs
 
-## Build
+Integración: Cuando se prueban 2 o más componentes que trabajan en conjunto.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+End to End: Se realizan directamente en la aplicación, son para probar algo en específico, estas pruebas tardan mucho más, no son recomendadas.
 
-## Running unit tests
+## Jasmine
+Jasmine es un framework que trae por defecto Angular para pruebas unitarias, este framework por defecto va a buscar todos los archivos .spec que estén en nuestra aplicación.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Si no se desea realizar alguna prueba, dentro del archivo .spec en donde se describe el componente se coloca una x al inicio del describe, debe quedar así xdescribe.
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Todas las pruebas tienen dos partes: describe() e it()
+describe(): sirve para agrupar pruebas
+it(): es una prueba
+expect(): Son utilizadas para dar mensajes de pruebas exitosas
+Existen otros operadores que son:
+beforeAll(); Antes de todos
+beforeEach(); Antes de cada uno
+afterAll(); Después de todos
+afterEach(); Después de cada uno
+ng test --code-coverage: Esto va a evaluar todas las líneas de código y dirá cuales se están evaluando y cuales no
